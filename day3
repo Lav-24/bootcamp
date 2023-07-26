@@ -666,3 +666,15 @@ bootcamp> db.products.updateMany({
   modifiedCount: 3,
   upsertedCount: 0
 }
+bootcamp> db.products.deleteOne({ _id: 1 })
+{ acknowledged: true, deletedCount: 1 }
+bootcamp> db.products.find({
+...     price: {
+...         $in: [699, 799]
+...     }
+... }, {
+...     name: 1,
+...     price: 1
+... })
+[ { _id: 4, name: 'SmartPad', price: 699 } ]
+bootcamp>
